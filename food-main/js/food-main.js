@@ -92,14 +92,10 @@ window.addEventListener('DOMContentLoaded' , () => {
     }
 
     btnOpenModal.forEach(btn => {
-        btn.addEventListener('click' , function(){
-            openModal();
-        })
+        btn.addEventListener('click' , openModal)
     })
 
-    btnCloseModal.addEventListener('click' , function(){
-        closeModal();
-    })
+    btnCloseModal.addEventListener('click' , closeModal)
 
     modal.addEventListener('click' , (e) => {
         if(e.target === modal){
