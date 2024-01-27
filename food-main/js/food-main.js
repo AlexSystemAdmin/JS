@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded' , () => {
 
     // timer
 
-    const endTime = '2024-02-23';
+    const endTime = '2024-05-20';
 
     function getTime(endtime){
         const time = Date.parse(endtime) - Date.parse(new Date);
@@ -72,5 +72,44 @@ window.addEventListener('DOMContentLoaded' , () => {
         }
     }
     setTime('.timer', endTime);
+
+
+    // modal
+
+    const modal = document.querySelector('.modal');
+    const btnOpenModal = document.querySelectorAll('.btn');
+    const btnCloseModal = document.querySelector('.modal__close');
+
+    function openModal(){
+        modal.classList.add('show');
+        modal.classList.remove('hide');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal(){
+        modal.classList.add('hide');
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    btnOpenModal.forEach(btn => {
+        btn.addEventListener('click' , function(){
+            openModal();
+        })
+    })
+
+    btnCloseModal.addEventListener('click' , function(){
+        closeModal();
+    })
+
+    modal.addEventListener('click' , (e) => {
+        if(e.target === modal){
+            closeModal();
+        }
+    })
+    document.addEventListener('keydown' , (e) => {
+        if(e.code === 'Escape'){
+            closeModal();
+        }
+    })
 })
 
